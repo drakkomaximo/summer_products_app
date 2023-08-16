@@ -19,9 +19,13 @@ export const useProducts = () => {
     dispatch({ type: 'UPDATE_PRODUCT', payload: product });
   };
 
-  const deleteProduct = (productId: number) => {
+  const updateProductQuantity = (productId: string, quantity: number) => {
+    dispatch({ type: 'UPDATE_QUANTITY', payload: {productId, quantity} });
+  };
+
+  const deleteProduct = (productId: string) => {
     dispatch({ type: 'DELETE_PRODUCT', payload: productId });
   };
 
-  return { products, addProduct, updateProduct, deleteProduct };
+  return { products, addProduct, updateProduct, deleteProduct, updateProductQuantity };
 };

@@ -1,11 +1,13 @@
-/* import { useCart } from "../hooks/useCart" */
+import { Header, ProductsList } from "../components"
 
 export const HomePage = () => {
-  /* const { cartState } = useCart() */
-  /* const newDat = cartState. */
   return (
-    <div className="flex justify-center items-center w-full h-screen">
+    <>
+    <Header />
+    <div className="flex flex-col items-center">
       <h1 className="text-7xl capitalize font-bold">homePage summer app</h1>
+      <ProductsList />
     </div>
+    </>
   )
 }

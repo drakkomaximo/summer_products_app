@@ -7,10 +7,10 @@ interface CartProviderProps {
 }
 
 export const CartProvider: FC<CartProviderProps> = ({ children }) => {
-  const [cartState, cartDispatch] = useReducer(cartReducer, []);
+  const [cart, Dispatch] = useReducer(cartReducer, []);
 
   return (
-    <CartContext.Provider value={{ cartState, cartDispatch }}>
+    <CartContext.Provider value={{ cart, Dispatch }}>
       {children}
     </CartContext.Provider>
   );

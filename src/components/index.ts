@@ -1,5 +1,7 @@
 export * from './Footer'
 export * from './Header'
 export * from './ProductDetail'
+export * from './ProductItem'
 export * from './ProductsList'
 export * from './ShoppingCart'
+export * from './TermsAndConditionsModal '

@@ -7,19 +7,19 @@ export const useCart = () => {
     throw new Error("useCart debe ser utilizado dentro de un CartProvider");
   }
 
-  const { cartState, cartDispatch } = context;
+  const { cart, Dispatch } = context;
 
   const addToCart = (product: Product) => {
-    cartDispatch({ type: 'ADD_TO_CART', payload: product });
+    Dispatch({ type: 'ADD_TO_CART', payload: product });
   };
 
-  const removeFromCart = (productId: number) => {
-    cartDispatch({ type: 'REMOVE_FROM_CART', payload: productId });
+  const removeFromCart = (productId: string) => {
+    Dispatch({ type: 'REMOVE_FROM_CART', payload: productId });
   };
 
-  const changeQuantity = (productId: number, quantity: number) => {
-    cartDispatch({ type: 'CHANGE_QUANTITY', payload: { productId, quantity } });
+  const changeQuantity = (productId: string, quantity: number) => {
+    Dispatch({ type: 'CHANGE_QUANTITY', payload: { productId, quantity } });
   };
 
-  return { cartState, addToCart, removeFromCart, changeQuantity };
+  return { cart, addToCart, removeFromCart, changeQuantity };
 };
