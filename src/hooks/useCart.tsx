@@ -21,5 +21,9 @@ export const useCart = () => {
     Dispatch({ type: 'CHANGE_QUANTITY', payload: { productId, quantity } });
   };
 
-  return { cart, addToCart, removeFromCart, changeQuantity };
+  const isProductInCart = (productId: string) =>{
+    return !!cart.find((item) => item.product.id === productId)
+  }
+
+  return { cart, addToCart, removeFromCart, changeQuantity, isProductInCart };
 };

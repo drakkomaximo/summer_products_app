@@ -52,3 +52,26 @@ export const fakeProducts: Product[] = [
     price: 29.99,
   },
 ];
+
+export const termsAndConditionsContent = `
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed justo vel lectus tincidunt fermentum in a urna.
+Vestibulum eu nisi at nisl fringilla dapibus a non turpis. Nullam vel eros nec tortor ullamcorper bibendum.
+Fusce in nunc convallis, commodo sapien eu, vestibulum tellus. Sed consectetur, eros ac scelerisque tincidunt,
+velit tellus tincidunt sapien, id tristique purus nunc vel est.
+
+Duis laoreet justo ut dictum gravida. Vivamus a eros et libero auctor fringilla id ut turpis.
+Aliquam non nisl vel tortor hendrerit volutpat. Ut vel ligula ullamcorper, egestas arcu ut, gravida nisi.
+Integer in libero vel justo condimentum sollicitudin.
+
+Morbi et nunc ac nulla efficitur condimentum. Sed semper purus nec urna hendrerit, a malesuada mi vestibulum.
+Proin consectetur odio in eros pharetra, sed suscipit risus tristique. Sed eu eleifend quam, eu cursus elit.
+`;
+
+export const enum ROUTES {
+  NOTFOUND = '*',
+  HOME = '/',
+  CREATEPRODUCT = '/create-product',
+  SHOPPINGCART = '/shopping-cart',
+  PRODUCTDETAILS = '/product-details',
+  EDITPRODUCT = '/edit-product',
+}

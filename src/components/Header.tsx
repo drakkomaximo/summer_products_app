@@ -17,9 +17,8 @@ export const Header: React.FC = () => {
         <div className="flex items-center">
           <Link to="/shopping-cart" className="flex items-center">
             <FiShoppingCart className="mr-2 text-xl" />
-            <span>Carrito</span>
             <span className="ml-1 text-sm font-semibold">
-              {totalItemsInCart} artículos
+              {totalItemsInCart}
             </span>
           </Link>
         </div>
