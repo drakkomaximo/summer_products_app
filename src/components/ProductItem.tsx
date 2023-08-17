@@ -54,7 +54,7 @@ const ProductItem: FC<ProductItemProps> = ({
           className={`w-full h-40 object-cover mb-2`}
         />
         {isHovered && (
-          <ProductOptions productId={product.id} isInCart={isInCart} />
+          <ProductOptions productId={product.id} isInCart={isInCart} product={product}/>
         )}
       </div>
       <div className="flex justify-between">

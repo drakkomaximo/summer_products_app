@@ -12,10 +12,14 @@ export const useProducts = () => {
     );
   }
 
-  const { products, dispatch } = context;
+  const { state, dispatch } = context;
 
   const addProduct = (product: Product) => {
     dispatch({ type: "ADD_PRODUCT", payload: product });
+  };
+
+  const selectProduct = (product: Product) => {
+    dispatch({ type: "SELECT_PRODUCT", payload: product });
   };
 
   const updateProduct = (product: Product) => {
@@ -26,8 +30,13 @@ export const useProducts = () => {
     dispatch({ type: "DELETE_PRODUCT", payload: productId });
   };
 
-  const goToEditProduct = (productId: string) => {
-    navigate(`${ROUTES.EDITPRODUCT}/${productId}`);
+  const cleanProduct = () => {
+    dispatch({ type: "CLEAN_PRODUCT" });
+  };
+
+  const goToEditProduct = (product: Product) => {
+    selectProduct(product)
+    navigate(`${ROUTES.EDITPRODUCT}`);
   };
 
   const goToDetailsProduct = (productId: string) => {
@@ -36,16 +45,21 @@ export const useProducts = () => {
 
   const goToCreateProduct = () => {
     navigate(`${ROUTES.CREATEPRODUCT}`);
+    cleanProduct()
   };
 
   const goBack = () => {
     navigate(ROUTES.HOME);
+    cleanProduct()
   };
 
   return {
-    products,
+    products: state.products,
+    product: state.product,
     addProduct,
     updateProduct,
+    selectProduct,
+    cleanProduct,
     deleteProduct,
     goToEditProduct,
     goToCreateProduct,

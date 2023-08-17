@@ -1,22 +1,44 @@
-import { ProductState, ProductAction } from "../../interfaces";
+import { ProductsState, ProductAction } from "../../interfaces";
 
 export const productReducer = (
-  state: ProductState,
+  state: ProductsState,
   action: ProductAction
-): ProductState => {
+): ProductsState => {
   switch (action.type) {
     case "ADD_PRODUCT":
-      return [...state, action.payload];
+      return { ...state, products: [...state.products, action.payload] };
 
     case "UPDATE_PRODUCT":
-      return state.map((product) =>
-        product.id === action.payload.id
-          ? { ...product, ...action.payload }
-          : product
-      );
+      return {
+        ...state,
+        products: [
+          ...state.products.map((product) =>
+            product.id === action.payload.id
+              ? { ...product, ...action.payload }
+              : product
+          ),
+        ],
+      };
 
     case "DELETE_PRODUCT":
-      return state.filter((product) => product.id !== action.payload);
+      return {
+        ...state,
+        products: [
+          ...state.products.filter((product) => product.id !== action.payload),
+        ],
+      };
+
+    case "SELECT_PRODUCT":
+      return {
+        ...state,
+        product: action.payload,
+      };
+
+    case "CLEAN_PRODUCT":
+      return {
+        ...state,
+        product: undefined,
+      };
 
     default:
       return state;

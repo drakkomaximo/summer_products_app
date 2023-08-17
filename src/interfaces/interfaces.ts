@@ -1,9 +1,14 @@
-export type ProductState = Product[];
+export type ProductsState = {
+  product: Product | undefined
+  products: Product[]
+};
 
 export type ProductAction =
   | { type: "ADD_PRODUCT"; payload: Product }
   | { type: "UPDATE_PRODUCT"; payload: Product }
   | { type: "DELETE_PRODUCT"; payload: string }
+  | { type: "SELECT_PRODUCT"; payload: Product }
+  | { type: "CLEAN_PRODUCT"}
 
 export type CartState = CartItem[];
 

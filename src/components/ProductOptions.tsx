@@ -1,17 +1,19 @@
 import { FC } from "react";
 import { useProducts } from "../hooks";
 import { FaEye, FaPen, FaTrashAlt } from "react-icons/fa";
+import { Product } from "../interfaces";
 
 interface ProductOptions {
+  product: Product
   productId: string;
   isInCart: boolean;
 }
 
-export const ProductOptions: FC<ProductOptions> = ({ productId, isInCart }) => {
+export const ProductOptions: FC<ProductOptions> = ({ productId, isInCart, product }) => {
   const { deleteProduct, goToEditProduct, goToDetailsProduct } = useProducts();
 
   const HandleEditProduct = () => {
-    goToEditProduct(productId);
+    goToEditProduct(product);
   };
 
   const handleViewProduct = () => {

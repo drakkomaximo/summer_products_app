@@ -38,7 +38,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({
         </div>
         <div className="flex mt-4 items-center">
           <button
-            className="flex justify-center items-center bg-gray-500 hover:bg-gray-700 text-white py-1 px-2 rounded mr-2"
+            className="flex justify-center items-center bg-gray-500 hover:bg-gray-900 text-white py-1 px-2 rounded mr-2"
             onClick={goBack}
           >
             <FaBackward className="mr-1" />

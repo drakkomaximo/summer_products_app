@@ -8,10 +8,13 @@ interface ProductProviderProps {
 }
 
 export const ProductProvider: FC<ProductProviderProps> = ({ children }) => {
-  const [products, dispatch] = useReducer(productReducer, fakeProducts);
+  const [state, dispatch] = useReducer(productReducer, {
+    product: null,
+    products: fakeProducts
+  });
 
   return (
-    <ProductContext.Provider value={{ products, dispatch }}>
+    <ProductContext.Provider value={{ state, dispatch }}>
       {children}
     </ProductContext.Provider>
   );

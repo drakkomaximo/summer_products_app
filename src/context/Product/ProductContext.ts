@@ -1,8 +1,8 @@
 import { Dispatch, createContext } from "react";
-import { ProductState, ProductAction } from "../../interfaces";
+import { ProductsState, ProductAction } from "../../interfaces";
 
 interface ProductContextProps {
-  products: ProductState;
+  state: ProductsState;
   dispatch: Dispatch<ProductAction>;
 }
 
