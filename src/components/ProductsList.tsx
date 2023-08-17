@@ -8,9 +8,9 @@ export const ProductsList: FC = () => {
   const { addToCart, cart, removeFromCart, changeQuantity } = useCart();
 
   return (
-    <div className="container mx-auto my-8">
+    <div className="container mx-auto my-8 px-4">
       <h2 className="text-2xl font-semibold mb-4 text-center">
-        Lista de Productos
+        Products List
       </h2>
       {products.length === 0 ? (
         <div className="flex">

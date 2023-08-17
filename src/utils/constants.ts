@@ -49,7 +49,27 @@ export const fakeProducts: Product[] = [
     },
     name: "Producto 5",
     description: "Descripción del Producto 5",
-    price: 29.99,
+    price: 2999,
+  },
+  {
+    id: 'test6',
+    image: {
+      imageUrl: "https://picsum.photos/id/106/200/300",
+      imageName: "product_5.jpg",
+    },
+    name: "Producto 5",
+    description: "Descripción del Producto 5",
+    price: 2999,
+  },
+  {
+    id: 'test7',
+    image: {
+      imageUrl: "https://picsum.photos/id/106/200/300",
+      imageName: "product_5.jpg",
+    },
+    name: "Producto 5",
+    description: "Descripción del Producto 5",
+    price: 2999,
   },
 ];
 
@@ -74,4 +94,11 @@ export const enum ROUTES {
   SHOPPINGCART = '/shopping-cart',
   PRODUCTDETAILS = '/product-details',
   EDITPRODUCT = '/edit-product',
+}
+
+export const enum PREFIXPRICES {
+  NOONE = '',
+  US = '$',
+  EU = '€',
+  CN = '¥'
 }

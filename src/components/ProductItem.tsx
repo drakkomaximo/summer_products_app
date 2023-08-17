@@ -1,7 +1,7 @@
 import { useState, FC } from "react";
 import { CartItem, Product } from "../interfaces";
-import { FaMinus, FaPlus } from "react-icons/fa";
-import { ProductOptions } from ".";
+import { CountOptions, ProductOptions } from ".";
+import { PREFIXPRICES, formattedPriceValue } from "../utils";
 
 interface ProductItemProps {
   product: Product;
@@ -59,7 +59,12 @@ const ProductItem: FC<ProductItemProps> = ({
       </div>
       <div className="flex justify-between">
         <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-        <p className="text-green-600 font-semibold mt-2">${product.price}</p>
+        <p className="text-green-600 font-semibold mt-2">
+          {formattedPriceValue({
+            price: product.price,
+            preffixPrice: PREFIXPRICES.US,
+          })}
+        </p>
       </div>
       <div className="flex mt-2 justify-between">
         {isInCart ? (
@@ -77,21 +82,10 @@ const ProductItem: FC<ProductItemProps> = ({
             >
               Add Product to cart
             </button>
-            <div className="flex ml-2">
-              <button
-                className="bg-gray-300 text-gray-600 py-1 px-2 rounded"
-                onClick={() => handleQuantityChange(quantity - 1)}
-              >
-                <FaMinus />
-              </button>
-              <span className="px-2">{quantity}</span>
-              <button
-                className="bg-gray-300 text-gray-600 py-1 px-2 rounded"
-                onClick={() => handleQuantityChange(quantity + 1)}
-              >
-                <FaPlus />
-              </button>
-            </div>
+            <CountOptions
+              handleQuantityChange={handleQuantityChange}
+              quantity={quantity}
+            />
           </>
         )}
       </div>

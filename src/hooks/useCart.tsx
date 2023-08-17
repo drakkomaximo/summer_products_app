@@ -25,5 +25,15 @@ export const useCart = () => {
     return !!cart.find((item) => item.product.id === productId)
   }
 
-  return { cart, addToCart, removeFromCart, changeQuantity, isProductInCart };
+  const totalItemsInCart = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
+  const totalIPricetemsInCart = cart.reduce(
+    (total, item) => total + (item.quantity* item.product.price),
+    0
+  );
+
+  return { cart, addToCart, removeFromCart, changeQuantity, isProductInCart, totalItemsInCart, totalIPricetemsInCart };
 };
