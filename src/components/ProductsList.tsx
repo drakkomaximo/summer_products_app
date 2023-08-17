@@ -2,18 +2,26 @@ import { FC } from "react";
 import { useCart, useProducts } from "../hooks";
 import { FaShoppingBasket } from "react-icons/fa"; // Importar el icono de React Icons
 import ProductItem from "./ProductItem";
+import { NewProductBtn } from ".";
 
 export const ProductsList: FC = () => {
   const { products, goToCreateProduct } = useProducts();
   const { addToCart, cart, removeFromCart, changeQuantity } = useCart();
 
   return (
-    <div className={`container mx-auto my-8 px-4 ${products.length === 0 ? 'h-[50vh]' : ''}`}>
+    <div
+      className={`relative container mx-auto my-8 px-4 w-[90%] ${
+        products.length === 0 ? "h-[50vh]" : ""
+      }`}
+    >
       {products.length === 0 ? (
         <div className="flex flex-col justify-center items-center h-full">
           <FaShoppingBasket className="text-7xl text-gray-400 mr-2" />
           <p className="text-5xl font-bold">There are no products, yet</p>
-          <button onClick={goToCreateProduct} className="font-bold mt-4 bg-gray-900 text-white py-2 px-4 rounded-2xl">
+          <button
+            onClick={goToCreateProduct}
+            className="font-bold mt-4 bg-gray-900 text-white py-2 px-4 rounded-2xl"
+          >
             Create new Product
           </button>
         </div>
@@ -31,6 +39,7 @@ export const ProductsList: FC = () => {
           ))}
         </ul>
       )}
+      <NewProductBtn />
     </div>
   );
 };

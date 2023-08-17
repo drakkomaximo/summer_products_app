@@ -72,7 +72,7 @@ const ProductItem: FC<ProductItemProps> = ({
             className="bg-red-600 text-white py-1 px-2 rounded w-full"
             onClick={handleRemoveFromCart}
           >
-            Delete Product to cart
+            Delete from cart
           </button>
         ) : (
           <>
@@ -80,7 +80,7 @@ const ProductItem: FC<ProductItemProps> = ({
               className="bg-gray-900 text-white py-1 px-4 rounded"
               onClick={handleAddToCart}
             >
-              Add Product to cart
+              Add to cart
             </button>
             <CountOptions
               handleQuantityChange={handleQuantityChange}

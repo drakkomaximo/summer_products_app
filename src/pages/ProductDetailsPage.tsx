@@ -1,10 +1,13 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useCart, useProducts } from "../hooks";
 import { Header, ProductDetail } from "../components";
+import { ROUTES } from "../utils";
+import { useLocation } from "react-router-dom";
 
 export const ProductDetailsPage: FC = () => {
+  const location = useLocation()
   const { product, deleteProduct, goToEditProduct, goBack } = useProducts();
-  const { isProductInCart, removeFromCart } = useCart();
+  const { isProductInCart, removeFromCart, addToCart } = useCart();
 
   const handleDelete = () => {
     if (product) {
@@ -13,6 +16,12 @@ export const ProductDetailsPage: FC = () => {
     }
   };
 
+  const addProductTocart = () => {
+    if (product) {
+      addToCart(product);
+    }
+  };
+  
   const handleDeleteFromCart = () => {
     if (product) {
       removeFromCart(product.id);
@@ -25,6 +34,12 @@ export const ProductDetailsPage: FC = () => {
     }
   };
 
+  useEffect(() => {
+    if (location.pathname === ROUTES.PRODUCTDETAILS && !product) {
+      goBack();
+    }
+  }, [location, product, goBack]);
+
   if (!product) {
     return <p>Producto no encontrado.</p>;
   }
@@ -34,6 +49,7 @@ export const ProductDetailsPage: FC = () => {
       <Header title={'Product Details'} />
       <section className="flex flex-col justify-center items-center w-screen h-full">
         <ProductDetail
+          addProductTocart={addProductTocart}
           handleDeleteFromCart={handleDeleteFromCart}
           handleDelete={handleDelete}
           handleEdit={handleEdit}

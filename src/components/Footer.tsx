@@ -11,21 +11,25 @@ import { privacyPolicy, termsAndConditionsContent } from "../utils";
 export const Footer: FC = () => {
   return (
     <footer className="bg-gray-900 text-white py-4 px-8 text-center">
-      <div className="flex justify-around items-center">
-        <a
-          href="https://github.com/drakkomaximo"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-500 hover:text-white mr-2 font-bold"
-        >
-          Created by drakkomaximo &copy; 2023
-        </a>
-        <CustomModal
-          message={termsAndConditionsContent}
-          title={"Terms and Conditions"}
-        />
-        <CustomModal message={privacyPolicy} title={"Privacy Policy"} />
-        <div className="flex ml-4">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div className="flex flex-col items-center md:items-start mb-2 md:mb-0">
+          <a
+            href="https://github.com/drakkomaximo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-white mr-2 font-bold"
+          >
+            Created by drakkomaximo &copy; 2023
+          </a>
+        </div>
+        <div className="flex flex-col items-center md:items-center mb-2 md:mb-0">
+          <CustomModal
+            message={termsAndConditionsContent}
+            title={"Terms and Conditions"}
+          />
+          <CustomModal message={privacyPolicy} title={"Privacy Policy"} />
+        </div>
+        <div className="flex items-center justify-center md:justify-end">
           <a
             href="https://www.sumerlabs.com/"
             target="_blank"
