@@ -23,11 +23,13 @@ export const Footer: FC = () => {
           </a>
         </div>
         <div className="flex flex-col items-center md:items-center mb-2 md:mb-0">
+          <CustomModal message={privacyPolicy} title={"Privacy Policy"} />
+        </div>
+        <div className="flex flex-col items-center md:items-center mb-2 md:mb-0">
           <CustomModal
             message={termsAndConditionsContent}
             title={"Terms and Conditions"}
           />
-          <CustomModal message={privacyPolicy} title={"Privacy Policy"} />
         </div>
         <div className="flex items-center justify-center md:justify-end">
           <a

@@ -6,24 +6,25 @@ import { FaArrowLeft } from "react-icons/fa";
 
 export const ShoppingCartPage = () => {
   const { cart, removeFromCart, changeQuantity, totalIPricetemsInCart } = useCart();
-  const { goToDetailsProduct } = useProducts()
+  const { goToDetailsProduct } = useProducts();
+
   return (
     <section className="bg-gray-100 py-10 px-4 sm:px-6 lg:px-8 h-[91%]">
       <div className="max-w-3xl mx-auto h-full">
-        <div className="flex justify-between items-center">
-          <div className="flex justify-start items-center">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex justify-start items-center mb-4 md:mb-0">
             <Link
               to={ROUTES.HOME}
-              className="flex items-center text-greay-900 hover:underline mb-2"
+              className="flex items-center text-greay-900 hover:underline"
             >
               <FaArrowLeft size={"2rem"} />
             </Link>
-            <h2 className="text-2xl font-semibold mb-2 ml-4">
+            <h2 className="text-2xl font-semibold ml-4">
               Shopping Cart
             </h2>
           </div>
           <div className="flex justify-start items-center">
-            <h2 className="mb-2">
+            <h2>
               {totalIPricetemsInCart > 0 && (
                 <span className="text-5xl">
                   Total:{" "}

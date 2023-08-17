@@ -34,7 +34,7 @@ export const FormPage: FC = () => {
   return (
     <>
       <Header title={product ? "Edit Product" : "Create Product"} />
-      <div className="container mx-auto p-4 h-full">
+      <div className="container mx-auto p-4 sm:h-full">
         <ProductForm
           onSubmit={handleFormSubmit}
           initialProduct={product}

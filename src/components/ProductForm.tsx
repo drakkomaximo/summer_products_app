@@ -16,9 +16,10 @@ export const ProductForm: FC<ProductFormProps> = ({
   onSubmit,
   initialProduct,
 }) => {
-  const [imageData, setImageData] = useState<{ imageUrl: string; imageName: string } | null>(
-    initialProduct?.image || null
-  );
+  const [imageData, setImageData] = useState<{
+    imageUrl: string;
+    imageName: string;
+  } | null>(initialProduct?.image || null);
   const imageInputRef = useRef<HTMLInputElement>(null);
   const {
     register,
@@ -49,20 +50,20 @@ export const ProductForm: FC<ProductFormProps> = ({
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
-      className="bg-white rounded-lg shadow-md p-4 mt-6"
+      className="bg-white rounded-lg shadow-md p-4 mt-6 mb-6 sm:mb-0"
     >
-      <div className="flex mb-4">
-      <div className="w-1/2 pr-2">
+      <div className="flex flex-col sm:flex-row mb-4">
+        <div className="w-full sm:w-1/2 pr-2">
           <label htmlFor="imageInput" className="cursor-pointer">
             {imageData ? (
               <img
                 src={imageData.imageUrl}
                 alt="Product"
-                className="w-full h-[18rem] cursor-pointer object-cover"
+                className="w-full h-[10rem] sm:h-[18rem] cursor-pointer object-cover"
               />
             ) : (
-              <div className="bg-gray-100 h-[18rem] flex flex-col justify-center items-center cursor-pointer">
-                <FaImage size={'5rem'}/>
+              <div className="bg-gray-100 h-[10rem] sm:h-[18rem] flex flex-col justify-center items-center cursor-pointer">
+                <FaImage size={"5rem"} />
                 <span className="text-2xl font-bold">No Image</span>
                 <span className="text-2xl font-bold">Click to Upload</span>
               </div>
@@ -80,40 +81,49 @@ export const ProductForm: FC<ProductFormProps> = ({
             <p className="text-red-500">{errors.image.imageUrl.message}</p>
           )}
         </div>
-        <div className="w-1/2 pl-2">
-        <div className="mb-4">
-        <label className="block text-gray-700 font-bold mb-2">Name:</label>
-        <input
-          {...register("name")}
-          type="text"
-          defaultValue={initialProduct && initialProduct.name || ''}
-          className="w-full border rounded py-2 px-3"
-        />
-        {errors.name && <p className="text-red-500">{errors.name.message}</p>}
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700 font-bold mb-2">
-          Description:
-        </label>
-        <textarea
-          {...register("description")}
-          defaultValue={initialProduct && initialProduct.description || ''}
-          className="w-full border rounded py-2 px-3"
-        />
-        {errors.description && (
-          <p className="text-red-500">{errors.description.message}</p>
-        )}
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700 font-bold mb-2">Price:</label>
-        <input
-          {...register("price", {valueAsNumber: true})}
-          defaultValue={initialProduct && initialProduct.price || undefined}
-          type="number"
-          className="w-full border rounded py-2 px-3"
-        />
-        {errors.price && <p className="text-red-500">{errors.price.message}</p>}
-      </div>
+        <div className="w-full sm:w-1/2 pl-2">
+          <div className="mb-4">
+            <label className="block text-gray-700 font-bold mb-2">Name:</label>
+            <input
+              {...register("name")}
+              type="text"
+              defaultValue={(initialProduct && initialProduct.name) || ""}
+              className="w-full border rounded py-2 px-3"
+            />
+            {errors.name && (
+              <p className="text-red-500">{errors.name.message}</p>
+            )}
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-bold mb-2">
+              Description:
+            </label>
+            <textarea
+              {...register("description")}
+              rows={3}
+              defaultValue={
+                (initialProduct && initialProduct.description) || ""
+              }
+              className="w-full border rounded py-2 px-3 resize-none"
+            />
+            {errors.description && (
+              <p className="text-red-500">{errors.description.message}</p>
+            )}
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-bold mb-2">Price:</label>
+            <input
+              {...register("price", { valueAsNumber: true })}
+              defaultValue={
+                (initialProduct && initialProduct.price) || undefined
+              }
+              type="number"
+              className="w-full border rounded py-2 px-3"
+            />
+            {errors.price && (
+              <p className="text-red-500">{errors.price.message}</p>
+            )}
+          </div>
         </div>
       </div>
       <div className="flex">

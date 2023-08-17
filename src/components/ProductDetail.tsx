@@ -46,14 +46,14 @@ export const ProductDetail: FC<ProductDetailProps> = ({
                 onClick={addProductTocart}
               >
                 <FaPlus className="mr-0 xs:mr-1" />
-                <span className="hidden xs:block">Add to cart</span>
+                <span className="block">Add</span>
               </button>
               <button
                 className="flex justify-center items-center bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded mr-2"
                 onClick={handleEdit}
               >
                 <FaEdit className="mr-0 xs:mr-1" />
-                <span className="hidden xs:block">Edit</span>
+                <span className="block">Edit</span>
               </button>
 
               <button
@@ -61,7 +61,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({
                 onClick={handleDelete}
               >
                 <FaTrashAlt className="mr-0 xs:mr-1" />
-                <span className="hidden xs:block">Delete</span>
+                <span className="block">Delete</span>
               </button>
             </>
           ):(
@@ -70,7 +70,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({
                 onClick={handleDeleteFromCart}
               >
                 <FaTrashAlt className="mr-0 xs:mr-1" />
-                <span className="hidden md:block">Remove From Cart</span>
+                <span className="block">Remove From Cart</span>
               </button>
           )}
         </div>
