@@ -9,7 +9,7 @@ export const fakeProducts: Product[] = [
     },
     name: "Producto 1",
     description: "Descripción del Producto 1",
-    price: 19.99,
+    price: 1999,
   },
   {
     id: 'test2',
@@ -19,7 +19,7 @@ export const fakeProducts: Product[] = [
     },
     name: "Producto 2",
     description: "Descripción del Producto 2",
-    price: 24.99,
+    price: 2499,
   },
   {
     id: 'test3',
@@ -29,7 +29,7 @@ export const fakeProducts: Product[] = [
     },
     name: "Producto 3",
     description: "Descripción del Producto 3",
-    price: 12.99,
+    price: 1299,
   },
   {
     id: 'test4',
@@ -39,7 +39,7 @@ export const fakeProducts: Product[] = [
     },
     name: "Producto 4",
     description: "Descripción del Producto 4",
-    price: 34.99,
+    price: 3499,
   },
   {
     id: 'test5',

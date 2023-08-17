@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "../components";
-import { useCart } from "../hooks";
+import { useCart, useProducts } from "../hooks";
 import { PREFIXPRICES, ROUTES, formattedPriceValue } from "../utils";
 import { FaArrowLeft } from "react-icons/fa";
 
 export const ShoppingCartPage = () => {
-  const { cart, removeFromCart, changeQuantity, totalIPricetemsInCart } =
-    useCart();
+  const { cart, removeFromCart, changeQuantity, totalIPricetemsInCart } = useCart();
+  const { goToDetailsProduct } = useProducts()
   return (
     <section className="bg-gray-100 py-10 px-4 sm:px-6 lg:px-8 h-[91%]">
       <div className="max-w-3xl mx-auto h-full">
@@ -19,7 +19,7 @@ export const ShoppingCartPage = () => {
               <FaArrowLeft size={"2rem"} />
             </Link>
             <h2 className="text-2xl font-semibold mb-2 ml-4">
-              Carrito de Compras
+              Shopping Cart
             </h2>
           </div>
           <div className="flex justify-start items-center">
@@ -40,6 +40,7 @@ export const ShoppingCartPage = () => {
           cart={cart}
           removeFromCart={removeFromCart}
           updateQuantity={changeQuantity}
+          goToViewProduct={goToDetailsProduct}
         />
       </div>
     </section>

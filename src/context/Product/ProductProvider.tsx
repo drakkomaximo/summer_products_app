@@ -9,7 +9,7 @@ interface ProductProviderProps {
 
 export const ProductProvider: FC<ProductProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, {
-    product: null,
+    product: undefined,
     products: fakeProducts
   });
 

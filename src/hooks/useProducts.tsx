@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ProductContext } from "../context";
 import { Product } from "../interfaces";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../utils";
+import { ROUTES, notification } from "../utils";
 export const useProducts = () => {
   const navigate = useNavigate();
   const context = useContext(ProductContext);
@@ -16,6 +16,10 @@ export const useProducts = () => {
 
   const addProduct = (product: Product) => {
     dispatch({ type: "ADD_PRODUCT", payload: product });
+    notification({
+      text: "Product created",
+      type: "success",
+    });
   };
 
   const selectProduct = (product: Product) => {
@@ -24,10 +28,18 @@ export const useProducts = () => {
 
   const updateProduct = (product: Product) => {
     dispatch({ type: "UPDATE_PRODUCT", payload: product });
+    notification({
+      text: "Product updated",
+      type: "success",
+    });
   };
 
   const deleteProduct = (productId: string) => {
     dispatch({ type: "DELETE_PRODUCT", payload: productId });
+    notification({
+      text: "Product deleted",
+      type: "success",
+    });
   };
 
   const cleanProduct = () => {
@@ -36,15 +48,16 @@ export const useProducts = () => {
 
   const goToEditProduct = (product: Product) => {
     selectProduct(product)
-    navigate(`${ROUTES.EDITPRODUCT}`);
+    navigate(ROUTES.EDITPRODUCT);
   };
 
-  const goToDetailsProduct = (productId: string) => {
-    navigate(`${ROUTES.PRODUCTDETAILS}/${productId}`);
+  const goToDetailsProduct = (product: Product) => {
+    selectProduct(product)
+    navigate(ROUTES.PRODUCTDETAILS);
   };
 
   const goToCreateProduct = () => {
-    navigate(`${ROUTES.CREATEPRODUCT}`);
+    navigate(ROUTES.CREATEPRODUCT);
     cleanProduct()
   };
 

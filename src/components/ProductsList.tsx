@@ -9,9 +9,6 @@ export const ProductsList: FC = () => {
 
   return (
     <div className={`container mx-auto my-8 px-4 ${products.length === 0 ? 'h-[50vh]' : ''}`}>
-      <h2 className="text-2xl font-semibold mb-4 text-center">
-        Products List
-      </h2>
       {products.length === 0 ? (
         <div className="flex flex-col justify-center items-center h-full">
           <FaShoppingBasket className="text-7xl text-gray-400 mr-2" />

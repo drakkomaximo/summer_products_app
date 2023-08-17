@@ -14,7 +14,7 @@ export const productReducer = (
         products: [
           ...state.products.map((product) =>
             product.id === action.payload.id
-              ? { ...product, ...action.payload }
+              ? action.payload 
               : product
           ),
         ],

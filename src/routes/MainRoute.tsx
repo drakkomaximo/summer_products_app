@@ -14,7 +14,7 @@ export const MainRoute: React.FC = () => {
           <Route path={ROUTES.SHOPPINGCART} element={<ShoppingCartPage />} />
           <Route path={ROUTES.EDITPRODUCT} element={<FormPage />} />
           <Route path={ROUTES.CREATEPRODUCT} element={<FormPage />} />
-          <Route path={`${ROUTES.PRODUCTDETAILS}/:productId`} element={<ProductDetailsPage />} />
+          <Route path={ROUTES.PRODUCTDETAILS} element={<ProductDetailsPage />} />
         </Routes>
         <Footer />
       </main>

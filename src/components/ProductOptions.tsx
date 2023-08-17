@@ -17,7 +17,7 @@ export const ProductOptions: FC<ProductOptions> = ({ productId, isInCart, produc
   };
 
   const handleViewProduct = () => {
-    goToDetailsProduct(productId);
+    goToDetailsProduct(product);
   };
 
   return (

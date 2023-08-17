@@ -1,22 +1,22 @@
 import { FC } from "react";
 import { Product } from "../interfaces";
-import { FaTrashAlt, FaEdit, FaBackward } from "react-icons/fa";
+import { FaTrashAlt, FaEdit } from "react-icons/fa";
 import { PREFIXPRICES, formattedPriceValue } from "../utils";
 
 interface ProductDetailProps {
   isProductInCart: boolean;
   product: Product;
   handleDelete: () => void;
+  handleDeleteFromCart: () => void;
   handleEdit: () => void;
-  goBack: () => void;
 }
 
 export const ProductDetail: FC<ProductDetailProps> = ({
   isProductInCart,
   product,
+  handleDeleteFromCart,
   handleDelete,
   handleEdit,
-  goBack,
 }) => {
   return (
     <div className="bg-white rounded-lg shadow-md p-4 md:flex w-[80%]">
@@ -37,14 +37,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({
           <p className="text-gray-500 mt-2">{product.description}</p>
         </div>
         <div className="flex mt-4 items-center">
-          <button
-            className="flex justify-center items-center bg-gray-500 hover:bg-gray-900 text-white py-1 px-2 rounded mr-2"
-            onClick={goBack}
-          >
-            <FaBackward className="mr-1" />
-            <span className="hidden md:block">Go back</span>
-          </button>
-          {!isProductInCart && (
+          {!isProductInCart ? (
             <>
               <button
                 className="flex justify-center items-center bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded mr-2"
@@ -62,6 +55,14 @@ export const ProductDetail: FC<ProductDetailProps> = ({
                 <span className="hidden md:block">Delete</span>
               </button>
             </>
+          ):(
+            <button
+                className="flex justify-center items-center bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded mr-2"
+                onClick={handleDeleteFromCart}
+              >
+                <FaTrashAlt className="mr-1" />
+                <span className="hidden md:block">Remove From Cart</span>
+              </button>
           )}
         </div>
       </div>

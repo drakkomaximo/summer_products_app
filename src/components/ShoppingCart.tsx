@@ -1,18 +1,20 @@
 import { FC } from "react";
 
-import { FaShoppingCart, FaTrashAlt } from "react-icons/fa"; // Importa los iconos de FontAwesome
-import { CartItem } from "../interfaces";
+import { FaEye, FaShoppingCart, FaTrashAlt } from "react-icons/fa"; // Importa los iconos de FontAwesome
+import { CartItem, Product } from "../interfaces";
 import { CountOptions } from ".";
 import { PREFIXPRICES, formattedPriceValue } from "../utils";
 
 interface ShoppingCartProps {
   cart: CartItem[];
+  goToViewProduct: (product: Product) => void
   updateQuantity: (productId: string, newQuantity: number) => void;
   removeFromCart: (productId: string) => void;
 }
 
 export const ShoppingCart: FC<ShoppingCartProps> = ({
   cart,
+  goToViewProduct,
   updateQuantity,
   removeFromCart,
 }) => {
@@ -61,6 +63,12 @@ export const ShoppingCart: FC<ShoppingCartProps> = ({
                   quantity={item.quantity}
                   productId={item.product.id}
                 />
+                <button
+                  className="bg-gray-900 text-white py-1 px-2 ml-2 rounded"
+                  onClick={() => goToViewProduct(item.product)}
+                >
+                  <FaEye />
+                </button>
                 <button
                   className="bg-red-600 text-white py-1 px-2 ml-2 rounded"
                   onClick={() => removeFromCart(item.product.id)}

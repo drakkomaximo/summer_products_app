@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Product } from "../interfaces";
 import { CartContext } from "../context";
+import { notification } from "../utils";
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
@@ -11,10 +12,18 @@ export const useCart = () => {
 
   const addToCart = (product: Product) => {
     Dispatch({ type: 'ADD_TO_CART', payload: product });
+    notification({
+      text: "Product added to cart",
+      type: "success",
+    });
   };
 
   const removeFromCart = (productId: string) => {
     Dispatch({ type: 'REMOVE_FROM_CART', payload: productId });
+    notification({
+      text: "Product removed from Cart",
+      type: "success",
+    });
   };
 
   const changeQuantity = (productId: string, quantity: number) => {

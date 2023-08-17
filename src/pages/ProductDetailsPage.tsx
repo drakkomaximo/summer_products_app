@@ -1,21 +1,10 @@
-import { FC, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Product } from "../interfaces";
+import { FC } from "react";
 import { useCart, useProducts } from "../hooks";
-import { ProductDetail } from "../components";
+import { Header, ProductDetail } from "../components";
 
 export const ProductDetailsPage: FC = () => {
-  const { productId } = useParams<{ productId: string }>();
-  const { products, deleteProduct, goToEditProduct, goBack } = useProducts()
-  const { isProductInCart } = useCart()
-  /* const cartItem = cart.find((item) => item.product.id === product.id); */
-
-  const [product, setProduct] = useState<Product | undefined>();
-
-  useEffect(() => {
-    const foundProduct = products.find((p) => p.id === productId);
-    setProduct(foundProduct);
-  }, [products, productId]);
+  const { product, deleteProduct, goToEditProduct, goBack } = useProducts();
+  const { isProductInCart, removeFromCart } = useCart();
 
   const handleDelete = () => {
     if (product) {
@@ -24,9 +13,15 @@ export const ProductDetailsPage: FC = () => {
     }
   };
 
+  const handleDeleteFromCart = () => {
+    if (product) {
+      removeFromCart(product.id);
+    }
+  };
+
   const handleEdit = () => {
     if (product) {
-      goToEditProduct(product.id)
+      goToEditProduct(product);
     }
   };
 
@@ -35,9 +30,17 @@ export const ProductDetailsPage: FC = () => {
   }
 
   return (
-    <section className="flex flex-col justify-center items-center w-screen h-full">
-      <h1 className="text-5xl">Product Details</h1>
-      <ProductDetail handleDelete={handleDelete} handleEdit={handleEdit} product={product} goBack={goBack} isProductInCart={isProductInCart(product.id)} />
-    </section>
+    <>
+      <Header title={'Product Details'} />
+      <section className="flex flex-col justify-center items-center w-screen h-full">
+        <ProductDetail
+          handleDeleteFromCart={handleDeleteFromCart}
+          handleDelete={handleDelete}
+          handleEdit={handleEdit}
+          product={product}
+          isProductInCart={isProductInCart(product.id)}
+        />
+      </section>
+    </>
   );
 };

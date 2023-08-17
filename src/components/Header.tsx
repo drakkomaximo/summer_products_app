@@ -1,26 +1,31 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { FC } from "react";
 import { FiShoppingCart } from "react-icons/fi";
-import { useCart } from "../hooks";
+import { useCart, useProducts } from "../hooks";
 import { PREFIXPRICES, formattedPriceValue } from "../utils";
+import { Link } from "react-router-dom";
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  title?: string;
+}
+
+export const Header: FC<HeaderProps> = ({ title = "Product List" }) => {
+  const { goBack } = useProducts()
   const { totalItemsInCart } = useCart();
 
   return (
     <header className="bg-gray-900 text-white p-4 sticky w-full top-0 z-10">
       <div className="container mx-auto flex justify-between items-center">
         <div className="w-1/3">
-          <div className="w-36">
-            <img
-              src="https://www.sumerlabs.com/prod/assets/web/images/sumer-logo-white.png"
-              alt="summer logo"
-            />
-          </div>
+            <div className="w-36 cursor-pointer" onClick={goBack}>
+              <img
+                src="https://www.sumerlabs.com/prod/assets/web/images/sumer-logo-white.png"
+                alt="summer logo"
+              />
+            </div>
         </div>
         <div className="w-1/3">
           <h1 className="text-3xl capitalize font-bold hidden md:block text-center">
-            Summer Products app
+            {title}
           </h1>
         </div>
         <div className="w-1/3">
