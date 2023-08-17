@@ -1,7 +1,11 @@
 import { FC, useState } from "react";
-import { termsAndConditionsContent } from "../utils";
 
-export const TermsAndConditionsModal: FC = () => {
+interface CustomModalProps {
+  title: string
+  message: string
+}
+
+export const CustomModal: FC<CustomModalProps> = ({message, title}) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => {
@@ -15,7 +19,7 @@ export const TermsAndConditionsModal: FC = () => {
   return (
     <>
       <button className="text-gray-500 font-bold hover:text-gray-300 hover:underline" onClick={openModal}>
-        Terms and Conditions
+        {title}
       </button>
       {modalIsOpen ? (
         <>
@@ -23,11 +27,11 @@ export const TermsAndConditionsModal: FC = () => {
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="flex items-start justify-center p-5 border-b border-solid border-slate-200 rounded-t">
-                  <h3 className="text-3xl font-semibold text-gray-900">Terms and Conditions</h3>
+                  <h3 className="text-3xl font-semibold text-gray-900">{title}</h3>
                 </div>
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                    {termsAndConditionsContent}
+                    {message}
                   </p>
                 </div>
                 <div className="flex items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">

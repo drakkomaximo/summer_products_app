@@ -59,7 +59,7 @@ const ProductItem: FC<ProductItemProps> = ({
       </div>
       <div className="flex justify-between">
         <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-        <p className="text-green-600 font-semibold mt-2">
+        <p className="text-gray-900 font-semibold mt-2">
           {formattedPriceValue({
             price: product.price,
             preffixPrice: PREFIXPRICES.US,
@@ -77,7 +77,7 @@ const ProductItem: FC<ProductItemProps> = ({
         ) : (
           <>
             <button
-              className="bg-green-600 text-white py-1 px-4 rounded"
+              className="bg-gray-900 text-white py-1 px-4 rounded"
               onClick={handleAddToCart}
             >
               Add Product to cart

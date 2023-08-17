@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Product } from "../interfaces";
 import { FaTrashAlt, FaEdit, FaBackward } from "react-icons/fa";
+import { PREFIXPRICES, formattedPriceValue } from "../utils";
 
 interface ProductDetailProps {
   isProductInCart: boolean;
@@ -29,7 +30,10 @@ export const ProductDetail: FC<ProductDetailProps> = ({
       <div className="flex justify-between md:grid md:grid-rows-1 w-full md:w-1/2">
         <div className="flex flex-col">
           <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
-          <p className="text-green-600 font-semibold">${product.price}</p>
+          <p className="text-gray-900 font-semibold">{formattedPriceValue({
+            price: product.price,
+            preffixPrice: PREFIXPRICES.US,
+          })}</p>
           <p className="text-gray-500 mt-2">{product.description}</p>
         </div>
         <div className="flex mt-4 items-center">
@@ -38,7 +42,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({
             onClick={goBack}
           >
             <FaBackward className="mr-1" />
-            <span className="hidden md:block">Regresar</span>
+            <span className="hidden md:block">Go back</span>
           </button>
           {!isProductInCart && (
             <>
@@ -47,7 +51,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({
                 onClick={handleEdit}
               >
                 <FaEdit className="mr-1" />
-                <span className="hidden md:block">Editar</span>
+                <span className="hidden md:block">Edit</span>
               </button>
 
               <button
@@ -55,7 +59,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({
                 onClick={handleDelete}
               >
                 <FaTrashAlt className="mr-1" />
-                <span className="hidden md:block">Eliminar</span>
+                <span className="hidden md:block">Delete</span>
               </button>
             </>
           )}

@@ -4,18 +4,21 @@ import { FaShoppingBasket } from "react-icons/fa"; // Importar el icono de React
 import ProductItem from "./ProductItem";
 
 export const ProductsList: FC = () => {
-  const { products } = useProducts();
+  const { products, goToCreateProduct } = useProducts();
   const { addToCart, cart, removeFromCart, changeQuantity } = useCart();
 
   return (
-    <div className="container mx-auto my-8 px-4">
+    <div className={`container mx-auto my-8 px-4 ${products.length === 0 ? 'h-[50vh]' : ''}`}>
       <h2 className="text-2xl font-semibold mb-4 text-center">
         Products List
       </h2>
       {products.length === 0 ? (
-        <div className="flex">
-          <FaShoppingBasket className="text-4xl text-gray-400 mr-2" />
-          <p>There are no products, yet</p>
+        <div className="flex flex-col justify-center items-center h-full">
+          <FaShoppingBasket className="text-7xl text-gray-400 mr-2" />
+          <p className="text-5xl font-bold">There are no products, yet</p>
+          <button onClick={goToCreateProduct} className="font-bold mt-4 bg-gray-900 text-white py-2 px-4 rounded-2xl">
+            Create new Product
+          </button>
         </div>
       ) : (
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

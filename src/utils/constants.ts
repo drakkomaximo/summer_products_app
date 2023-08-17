@@ -74,18 +74,12 @@ export const fakeProducts: Product[] = [
 ];
 
 export const termsAndConditionsContent = `
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed justo vel lectus tincidunt fermentum in a urna.
-Vestibulum eu nisi at nisl fringilla dapibus a non turpis. Nullam vel eros nec tortor ullamcorper bibendum.
-Fusce in nunc convallis, commodo sapien eu, vestibulum tellus. Sed consectetur, eros ac scelerisque tincidunt,
-velit tellus tincidunt sapien, id tristique purus nunc vel est.
-
-Duis laoreet justo ut dictum gravida. Vivamus a eros et libero auctor fringilla id ut turpis.
-Aliquam non nisl vel tortor hendrerit volutpat. Ut vel ligula ullamcorper, egestas arcu ut, gravida nisi.
-Integer in libero vel justo condimentum sollicitudin.
-
-Morbi et nunc ac nulla efficitur condimentum. Sed semper purus nec urna hendrerit, a malesuada mi vestibulum.
-Proin consectetur odio in eros pharetra, sed suscipit risus tristique. Sed eu eleifend quam, eu cursus elit.
+At Sumer Labs, we are committed to providing you with a seamless and secure experience. By using our services, you agree to our Terms and Conditions, which outline the rules and guidelines governing your interactions with our platform. These terms cover various aspects, including your rights and responsibilities, user behavior, data usage, and intellectual property. We value your privacy and have detailed our Privacy Policy to ensure your personal information is handled responsibly. By continuing to use our services, you acknowledge that you've read and understood both our Terms and Conditions and Privacy Policy. Feel free to reach out to our dedicated support team if you have any questions or concerns.
 `;
+
+export const privacyPolicy = `
+At Sumer Labs, safeguarding your privacy is a top priority. Our Privacy Policy outlines how we collect, use, and protect your personal information when you use our services. We are committed to maintaining the confidentiality of your data and ensuring its secure handling. This policy explains the types of information we collect, the purposes for which we use it, and the options you have to control your data. We take measures to ensure compliance with data protection regulations and respect your choices when it comes to managing your information. By using our services, you acknowledge and consent to the practices described in our Privacy Policy. Your trust is important to us, and we encourage you to review our policy to understand how we work to protect your privacy.
+`
 
 export const enum ROUTES {
   NOTFOUND = '*',
