@@ -15,6 +15,7 @@ export const CountOptions: FC<CountOptionsProps> = ({
   return (
     <div className="flex ml-2">
       <button
+        data-testid="decrement-button"
         className="bg-gray-300 text-gray-600 py-1 px-2 rounded"
         onClick={() => handleQuantityChange(quantity - 1, productId)}
       >
@@ -22,6 +23,7 @@ export const CountOptions: FC<CountOptionsProps> = ({
       </button>
       <span className="px-2">{quantity}</span>
       <button
+        data-testid="increment-button"
         className="bg-gray-300 text-gray-600 py-1 px-2 rounded"
         onClick={() => handleQuantityChange(quantity + 1, productId)}
       >
