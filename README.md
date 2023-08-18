@@ -25,5 +25,4 @@ Here are some important notes to keep in mind while using the app:
 
 - **Default Language:** The app is presented in English by default.
 - **Initial Data:** The app is preloaded with sample information. Feel free to edit or delete this data as required.
-- **Data Persistence:** Please note that the app does not retain any information if you refresh the page. Make sure to save your changes before refreshing.
-
+- **Data Persistence:** Please note that the app does not retain any information if you refresh the page.
